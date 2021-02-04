@@ -2,7 +2,9 @@
 title: "R Project 1 - Hello R"
 author: "Steven Swenson"
 date: "Due Fed 3rd"
-output: html_document
+output: 
+  html_document: 
+    highlight: kate
 ---
 
 MAKE SURE YOU READ AND FOLLOW **ALL** INSTRUCTIONS ON THE INSTRUCTION DOCUMENT. 
@@ -40,7 +42,7 @@ datasaurus_dozen%>%
 
 Now let's plot the data in the dino dataset:
 
-```{r plot-dino, fig.height=3, fig.width=6}
+```{r plot-dino, fig.height=3, fig.width=5}
 dino_data <- datasaurus_dozen %>%
   filter(dataset == "dino")
 ggplot(data = dino_data, mapping = aes(x = x, y = y)) +
@@ -60,7 +62,7 @@ Plotting the data in the "star" dataset from the dinosaurus_dozen
 
 
 
-```{r plot-star, fig.height=3, fig.width=3}
+```{r plot-star, fig.height=3.5, fig.width=3.5}
 dino_data <- datasaurus_dozen %>%
   filter(dataset == "star")
 ggplot(data = dino_data, mapping = aes(x = x, y = y)) +
