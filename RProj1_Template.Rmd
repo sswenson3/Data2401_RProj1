@@ -30,9 +30,15 @@ The datasaurus data frame has
 
 ### Exercise 2
 
-(The answers for this Exercise are given for you below. But you should clean up some of the narrative so that it only includes what you want to turn in.)
+Checking the dataset with a frequency chart 
 
-First let's plot the data in the dino dataset:
+```{r}
+datasaurus_dozen%>%
+  count(dataset)%>%
+  print(13)
+```
+
+Now let's plot the data in the dino dataset:
 
 ```{r plot-dino, fig.height=3, fig.width=6}
 dino_data <- datasaurus_dozen %>%
