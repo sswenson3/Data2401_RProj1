@@ -30,7 +30,7 @@ The datasaurus data frame has
 
 ### Exercise 2
 
-Checking the dataset with a frequency chart 
+Checking the dataset with a frequency chart. Interestingly we find that there are thirteen datasets in this collection instead of the 12 we might expect from the name.
 
 ```{r}
 datasaurus_dozen%>%
@@ -100,4 +100,21 @@ dino_data %>%
 
 ### Exercise 5
 
-(Add code and narrative as needed. To add R chunks either type out the backticks, curly braces, and the letter `r` or use the Insert chunk button above, with the green +C.)
+
+Using faceting we can plot all of the datasets in the datasaurus data at once.
+
+```{r fig.height=6, fig.width=6 }
+
+ggplot(datasaurus_dozen, aes(x = x, y = y, color = dataset))+
+geom_point()+
+facet_wrap(~ dataset, ncol = 3) + # facet the dataset variable, in 3 cols
+theme(legend.position = "none")
+```
+And now we can use the group_by function to generate all the summary correlation coefficients as well.
+
+```{r cor-groups}
+datasaurus_dozen %>%
+group_by(dataset) %>%
+summarize(r = cor(x, y)) %>%
+print(13)
+```
